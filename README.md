@@ -12,13 +12,57 @@ DURATION : 4 WEEKS
 
 MENTOR : NEELA SANTOSH
 
+DESCRIPTION: 
+
+SOFTWARE : MODELSIM
+
+CODE- 
+
+ module alu(A,B,OP,alu_out);
+input[3:0]A,B;
+input[2:0]Op;
+output reg[3:0]alu_out;
+a;ways@(*)
+begin
+	case(Op)
+	     3'b000:alu_out=0;	
+	     3'b001:alu_out=A+B;	
+             3'b010:alu_out=A-B;	
+             3'b011:alu_out=A&B;	
+             3'b100:alu_out=A|B;	
+             3'b101:alu_out=~A;	
+             3'b110:alu_out=~B;	
+             3'b111:alu_out=0;
+	     default:alu_out=0	
+    endcase
+   
+ end
+ endmodule
+ //testbench
+ module TB();
+ reg [3:0] A, B;
+ reg [2:0] Op;
+ wire [3:0] alu_out;
+ 
+
+alu a1(A,B,Op,alu_out);
+
+initial
+begin
+	Op=3'b000;A=3'b0011;B=3'b0001;
+	#10
+	Op=3'b001;A=3'b0011;B=3'b0001;
+	#10
+	Op=3'b010;A=3'b0011;B=3'b0001;
+	#10
+	Op=3'b011;A=3'b0011;B=3'b0001;
+	#10
+	end
+
+endmodule
+
+ 
 
 OUTPUT:
 
-![Image](https://github.com/user-attachments/assets/3b09f46e-ef61-48ed-a1b5-dca579a93364)
 
-![Image](https://github.com/user-attachments/assets/5b742aae-d1a8-4562-8c63-810ceb29eb40)
-
-![Image](https://github.com/user-attachments/assets/571e7779-93eb-4cf1-85e5-e5193b29ffa5)
-
-![Image](https://github.com/user-attachments/assets/57245d63-b4e5-4850-961a-6f01f6adccb1)
